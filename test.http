@@ -1,0 +1,39 @@
+### Create a new customer
+POST http://localhost:5000/api/customers
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "email": "john@example.com",
+    "phone": "123-456-7890",
+    "address": "123 Main St"
+}
+
+###
+
+### Get all customers
+GET http://localhost:5000/api/customers
+
+###
+
+### Get single customer (Replace ID_HERE with a valid MongoDB ObjectId from the GET all customers response)
+@customerId = ID_HERE
+GET http://localhost:5000/api/customers/{{customerId}}
+
+###
+
+### Create an order for a customer (Replace customerId with a valid ObjectId)
+POST http://localhost:5000/api/orders
+Content-Type: application/json
+
+{
+    "customerId": "{{customerId}}",
+    "productName": "Wireless Headphones",
+    "quantity": 2,
+    "price": 150
+}
+
+###
+
+### Get all orders
+GET http://localhost:5000/api/orders
